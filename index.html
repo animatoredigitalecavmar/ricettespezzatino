@@ -3,207 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spezzatino di Manzo Regionale - Vivace</title>
+    <title>Spezzatino di Manzo Regionale</title>
     <style>
-        /* Stili Generali e Gradiente Vivace */
-        body {
-            font-family: 'Arial', sans-serif;
-            /* Gradiente vivace di sfondo: da arancione/rosso a giallo/verde */
-            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
-            color: #000080; /* Blu Scuro per il testo principale */
+        * {
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2d3748;
+            line-height: 1.8;
             min-height: 100vh;
         }
 
-        h1 {
-            color: #1E90FF; /* Blu Chiaro per il titolo principale */
-            text-align: center;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            color: #0000CD; /* Blu Medio Forte per i titoli delle ricette */
-            border-bottom: 3px solid #1E90FF;
-            padding-bottom: 8px;
-            margin-top: 40px;
-        }
-
-        p, li, caption {
-            color: #000080; /* Blu Scuro per i paragrafi e le liste */
-        }
-        
-        /* Contenitore per centrare la pagina */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.85); /* Leggero sfondo bianco semitrasparente per leggibilità */
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* ------------------------------------- */
-        /* Stili Menu Hamburger (Mobile-First) */
-        /* ------------------------------------- */
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
 
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .hamburger:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Cards */
         #menu-regioni {
-            display: none; /* Nascosto di default su mobile */
-            flex-direction: column;
-            width: 100%;
-            background-color: #1E90FF; /* Blu Chiaro come colore principale del menu */
-            border-radius: 8px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        #menu-regioni.show {
-            display: flex; /* Mostrato quando si clicca sull'hamburger */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
         }
 
         .regione-link {
             text-decoration: none;
-            display: flex; /* Cambiato a flex per layout mobile nel menu */
-            align-items: center;
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            background-color: #ADD8E6; /* Azzurro per i link */
-            border-bottom: 1px solid #1E90FF;
-            transition: background-color 0.3s;
-        }
-        
-        .regione-link:last-child {
-            border-bottom: none;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .regione-link:hover {
-            background-color: #6495ED; /* Blu mais all'hover */
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-        
+
         .regione-link img {
-            width: 50px; /* Miniatura nel menu mobile */
-            height: 50px;
+            width: 100%;
+            height: 200px;
             object-fit: cover;
-            border-radius: 50%;
-            margin-right: 15px;
+            transition: transform 0.3s;
+        }
+
+        .regione-link:hover img {
+            transform: scale(1.05);
         }
 
         .regione-link p {
-            margin: 0;
-            font-weight: bold;
-            color: #000080;
-        }
-
-        /* Stile Hamburger */
-        .hamburger {
-            display: block; /* Visibile su mobile */
-            cursor: pointer;
-            padding: 10px;
-            background-color: #0000CD;
-            color: white;
+            padding: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.1rem;
             text-align: center;
-            font-size: 1.2em;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            background: linear-gradient(to right, #f7fafc, #edf2f7);
         }
 
-        /* ------------------------------------- */
-        /* Stili Tavola (Desktop Layout) */
-        /* ------------------------------------- */
-        @media (min-width: 768px) {
-            .hamburger {
-                display: none; /* Nasconde l'hamburger su desktop */
-            }
-            #menu-regioni {
-                display: flex; /* Mostra il menu come riga su desktop */
-                flex-direction: row;
-                justify-content: space-around;
-                background-color: transparent;
-                margin-bottom: 60px;
-            }
-            .regione-link {
-                flex-direction: column;
-                width: 200px;
-                padding: 0;
-                border: 3px solid #0000CD;
-                border-radius: 8px;
-                background-color: #ADD8E6;
-            }
-            .regione-link img {
-                width: 100%;
-                height: 120px;
-                border-radius: 5px 5px 0 0;
-                margin-right: 0;
-            }
-            .regione-link p {
-                padding: 10px 5px;
-            }
-        }
-        /* ------------------------------------- */
-        
-        /* Stili Sezioni Ricetta */
+        /* Recipe Cards */
         .ricetta {
-            background-color: #F0F8FF; /* Azzurro tenue per il contenitore ricetta */
-            padding: 25px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .ingredienti-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        h2 {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
         }
 
-        .ingredienti-table, .ingredienti-table th, .ingredienti-table td {
-            border: 1px solid #1E90FF;
+        h3 {
+            font-size: 1.4rem;
+            color: #4a5568;
+            margin: 30px 0 15px;
         }
 
-        .ingredienti-table th, .ingredienti-table td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        .ingredienti-table th {
-            background-color: #4682B4; 
-            color: white;
-        }
-
-        .costo-stimato {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #FF4500; /* Arancione Rosso Intenso per il costo */
-            margin-top: 15px;
-            padding: 10px;
-            border: 2px dashed #FF4500;
-            display: inline-block;
-        }
-        
+        /* Audio Container */
         .audio-container {
-            margin-top: 10px;
-            margin-bottom: 20px;
-            background-color: #E0FFFF;
-            padding: 10px;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e9d5ff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .audio-container label {
+            display: block;
+            font-weight: 600;
+            color: #553c9a;
+            margin-bottom: 10px;
         }
 
         .audio-container audio {
             width: 100%;
             margin-top: 10px;
         }
+
+        /* Table Styles */
+        .ingredienti-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .ingredienti-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .ingredienti-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ingredienti-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ingredienti-table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+        .ingredienti-table tbody tr:hover {
+            background-color: #f7fafc;
+        }
+
+        /* Steps */
+        ol {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ol li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        ol li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Cost Badge */
+        .costo-stimato {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+        }
+
+        hr {
+            display: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block;
+            }
+
+            #menu-regioni {
+                display: none;
+                grid-template-columns: 1fr;
+            }
+
+            #menu-regioni.show {
+                display: grid;
+            }
+
+            header {
+                padding: 40px 20px 30px;
+            }
+
+            .ricetta {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            ol li {
+                padding-left: 45px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>🍖 Spezzatino di Manzo: Quattro Regioni, Quattro Sapori 🇮🇹</h1>
-
-    <p>Scopri quattro modi unici di preparare il classico spezzatino di manzo. Usa il menu per navigare tra le regioni. Tutte le ricette sono pensate per **4 persone adulte**.</p>
+    <header>
+        <h1>🍖 Spezzatino di Manzo Regionale 🇮🇹</h1>
+        <p class="subtitle">Scopri quattro modi unici di preparare il classico spezzatino. Tutte le ricette per 4 persone.</p>
+    </header>
 
     <div class="hamburger" onclick="toggleMenu()">
         ☰ Menu Ricette Regionali
@@ -228,12 +311,10 @@
         </a>
     </nav>
 
-    <hr>
-
     <div id="veneto" class="ricetta">
-        <h2>Veneto: Spezzatino con Polenta (Manzo al Vino Rosso)</h2>
+        <h2>Veneto: Spezzatino con Polenta</h2>
         <div class="audio-container">
-            <label for="audio_veneto">Ascolta la Ricetta:</label>
+            <label for="audio_veneto">🎧 Ascolta la Ricetta</label>
             <audio id="audio_veneto" controls>
                 <source src="Audio_Veneto.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -269,19 +350,17 @@
             <li>In una casseruola, rosola il manzo in olio EVO a fuoco vivo, fino a doratura, poi mettilo da parte.</li>
             <li>Nel fondo di cottura, soffriggi cipolla, carota e sedano tritati finemente.</li>
             <li>Aggiungi la carne e sfuma con il vino rosso. Lascia evaporare l'alcol.</li>
-            <li>Aggiungi il brodo, l'alloro, sale e pepe. Copri e cuoci a fuoco lento per circa **2,5 – 3 ore**, o finché la carne non sarà tenerissima.</li>
+            <li>Aggiungi il brodo, l'alloro, sale e pepe. Copri e cuoci a fuoco lento per circa 2,5 – 3 ore, o finché la carne non sarà tenerissima.</li>
             <li>Servi caldo con polenta gialla.</li>
         </ol>
 
-        <p class="costo-stimato">Costo Previsto Stimato: 12 - 16 € (a persona)</p>
+        <p class="costo-stimato">💰 Costo Stimato: 12 - 16 € (a persona)</p>
     </div>
 
-    <hr>
-
     <div id="toscana" class="ricetta">
-        <h2>Toscana: Spezzatino al Chianti (Peposo dell'Impruneta)</h2>
+        <h2>Toscana: Spezzatino al Chianti</h2>
         <div class="audio-container">
-            <label for="audio_toscana">Ascolta la Ricetta:</label>
+            <label for="audio_toscana">🎧 Ascolta la Ricetta</label>
             <audio id="audio_toscana" controls>
                 <source src="Audio_Toscana.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -315,19 +394,17 @@
             <li>Aggiungi l'aglio sbucciato, il pepe nero in grani e le erbe aromatiche.</li>
             <li>Sciogli il concentrato di pomodoro in un po' di vino e versalo sulla carne.</li>
             <li>Copri abbondantemente con il Chianti. Non è necessario aggiungere brodo.</li>
-            <li>Cuoci coperto in forno a **150°C** o sul fuoco a fiamma bassissima per circa **3-4 ore**. Il vino si ridurrà in un sughetto denso e scuro.</li>
+            <li>Cuoci coperto in forno a 150°C o sul fuoco a fiamma bassissima per circa 3-4 ore. Il vino si ridurrà in un sughetto denso e scuro.</li>
             <li>Aggiusta di sale alla fine. Servire con fette di pane toscano o fagioli all'olio.</li>
         </ol>
 
-        <p class="costo-stimato">Costo Previsto Stimato: 14 - 18 € (a persona)</p>
+        <p class="costo-stimato">💰 Costo Stimato: 14 - 18 € (a persona)</p>
     </div>
 
-    <hr>
-
     <div id="campania" class="ricetta">
-        <h2>Campania: Spezzatino con Piselli (Spezzatino al Ragù)</h2>
+        <h2>Campania: Spezzatino con Piselli</h2>
         <div class="audio-container">
-            <label for="audio_campania">Ascolta la Ricetta:</label>
+            <label for="audio_campania">🎧 Ascolta la Ricetta</label>
             <audio id="audio_campania" controls>
                 <source src="Audio_Campania.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -361,20 +438,18 @@
             <li>In un tegame, soffriggi la cipolla tritata in olio EVO.</li>
             <li>Aggiungi la carne e falla rosolare bene su tutti i lati. Sfuma con il vino bianco e lascia evaporare.</li>
             <li>Versa la passata di pomodoro e il brodo vegetale, aggiusta di sale e pepe.</li>
-            <li>Cuoci coperto a fuoco lento per almeno **2 ore**.</li>
-            <li>Aggiungi i piselli circa **30 minuti** prima della fine della cottura.</li>
+            <li>Cuoci coperto a fuoco lento per almeno 2 ore.</li>
+            <li>Aggiungi i piselli circa 30 minuti prima della fine della cottura.</li>
             <li>Prima di servire, guarnisci con foglie di basilico fresco. Ottimo anche per condire la pasta il giorno dopo.</li>
         </ol>
 
-        <p class="costo-stimato">Costo Previsto Stimato: 10 - 13 € (a persona)</p>
+        <p class="costo-stimato">💰 Costo Stimato: 10 - 13 € (a persona)</p>
     </div>
 
-    <hr>
-
     <div id="piemonte" class="ricetta">
-        <h2>Piemonte: Spezzatino al Barolo (Brasato Semplificato)</h2>
+        <h2>Piemonte: Spezzatino al Barolo</h2>
         <div class="audio-container">
-            <label for="audio_piemonte">Ascolta la Ricetta:</label>
+            <label for="audio_piemonte">🎧 Ascolta la Ricetta</label>
             <audio id="audio_piemonte" controls>
                 <source src="Audio_Piemonte.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -404,15 +479,15 @@
 
         <h3>Procedimento</h3>
         <ol>
-            <li>**Marinatura (Opzionale, ma consigliata):** Metti la carne a marinare nel Barolo con le verdure e le spezie per almeno 3-4 ore (o una notte). Scola e asciuga la carne, ma conserva il vino e le verdure.</li>
+            <li>Marinatura (Opzionale, ma consigliata): Metti la carne a marinare nel Barolo con le verdure e le spezie per almeno 3-4 ore (o una notte). Scola e asciuga la carne, ma conserva il vino e le verdure.</li>
             <li>In una casseruola, rosola la carne in olio EVO. Togli la carne e metti da parte.</li>
             <li>Nella stessa casseruola, soffriggi le verdure della marinatura (o fresche) fino a che non saranno appassite.</li>
             <li>Aggiungi la carne, il concentrato di pomodoro, sale, pepe e copri con il vino della marinatura.</li>
-            <li>Aggiungi il brodo. Cuoci a fuoco lento per circa **2 ore**, o finché il sugo non sarà denso e la carne tenera.</li>
+            <li>Aggiungi il brodo. Cuoci a fuoco lento per circa 2 ore, o finché il sugo non sarà denso e la carne tenera.</li>
             <li>Frulla le verdure nel sugo se desideri una salsa più liscia e omogenea. Servire con purè di patate.</li>
         </ol>
 
-        <p class="costo-stimato">Costo Previsto Stimato: 16 - 22 € (a persona)</p>
+        <p class="costo-stimato">💰 Costo Stimato: 16 - 22 € (a persona)</p>
     </div>
 
 </div>
@@ -426,4 +501,3 @@
 
 </body>
 </html>
-```
