@@ -12,145 +12,180 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Calibri', 'Segoe UI', sans-serif;
+            background-color: #F5F5DC;
             color: #2d3748;
             line-height: 1.8;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         /* Header */
         header {
             text-align: center;
             padding: 60px 20px 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin-bottom: 60px;
         }
 
         h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: #3e2723;
             margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: #718096;
-            max-width: 600px;
+            font-size: 1.2rem;
+            color: #5d4037;
+            max-width: 700px;
             margin: 0 auto;
+            font-weight: 300;
         }
 
         /* Hamburger Menu */
         .hamburger {
             display: none;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #8d6e63;
             color: white;
             padding: 18px;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 400;
             text-align: center;
             margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            transition: transform 0.2s;
+            transition: background-color 0.3s;
         }
 
         .hamburger:hover {
-            transform: translateY(-2px);
+            background-color: #6d4c41;
         }
 
-        /* Navigation Cards */
+        /* Book Pages Navigation */
         #menu-regioni {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 80px;
+            perspective: 2000px;
+            flex-wrap: wrap;
         }
 
         .regione-link {
             text-decoration: none;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            width: 280px;
+            height: 400px;
             position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            margin: 0 -20px;
         }
 
         .regione-link:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: rotateY(-25deg);
+            z-index: 10;
+        }
+
+        .regione-link:nth-child(1) {
+            z-index: 4;
+        }
+
+        .regione-link:nth-child(2) {
+            z-index: 3;
+        }
+
+        .regione-link:nth-child(3) {
+            z-index: 2;
+        }
+
+        .regione-link:nth-child(4) {
+            z-index: 1;
+        }
+
+        .page-content {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border: 2px solid #8d6e63;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2),
+                        inset -2px 0 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .regione-link img {
             width: 100%;
-            height: 200px;
+            height: 70%;
             object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .regione-link:hover img {
-            transform: scale(1.05);
         }
 
         .regione-link p {
-            padding: 20px;
-            font-weight: 600;
-            color: #2d3748;
+            padding: 20px 15px;
+            font-weight: 500;
+            color: #3e2723;
             font-size: 1.1rem;
             text-align: center;
-            background: linear-gradient(to right, #f7fafc, #edf2f7);
+            background: linear-gradient(to bottom, #ffffff, #fafaf8);
+            height: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Recipe Cards */
         .ricetta {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d7ccc8;
+            border-radius: 8px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         h2 {
-            font-size: 2rem;
-            color: #2d3748;
+            font-size: 2.2rem;
+            color: #3e2723;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 2px solid #8d6e63;
+            font-weight: 400;
         }
 
         h3 {
-            font-size: 1.4rem;
-            color: #4a5568;
-            margin: 30px 0 15px;
+            font-size: 1.5rem;
+            color: #5d4037;
+            margin: 35px 0 20px;
+            font-weight: 500;
+        }
+
+        p {
+            color: #4e342e;
+            font-size: 1.1rem;
+            margin: 15px 0;
         }
 
         /* Audio Container */
         .audio-container {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e9d5ff 100%);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
+            background-color: #efebe9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #8d6e63;
         }
 
         .audio-container label {
             display: block;
-            font-weight: 600;
-            color: #553c9a;
-            margin-bottom: 10px;
+            font-weight: 500;
+            color: #5d4037;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
         }
 
         .audio-container audio {
@@ -161,37 +196,33 @@
         /* Table Styles */
         .ingredienti-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 20px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border: 1px solid #d7ccc8;
         }
 
         .ingredienti-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #8d6e63;
             color: white;
             padding: 15px;
             text-align: left;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
 
         .ingredienti-table td {
             padding: 12px 15px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #efebe9;
+            color: #4e342e;
         }
 
         .ingredienti-table tr:last-child td {
             border-bottom: none;
         }
 
-        .ingredienti-table tbody tr {
-            transition: background-color 0.2s;
-        }
-
         .ingredienti-table tbody tr:hover {
-            background-color: #f7fafc;
+            background-color: #fafaf8;
         }
 
         /* Steps */
@@ -203,9 +234,11 @@
 
         ol li {
             counter-increment: step-counter;
-            margin: 15px 0;
-            padding-left: 50px;
+            margin: 20px 0;
+            padding-left: 60px;
             position: relative;
+            color: #4e342e;
+            font-size: 1.05rem;
         }
 
         ol li::before {
@@ -213,29 +246,27 @@
             position: absolute;
             left: 0;
             top: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #8d6e63;
             color: white;
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         /* Cost Badge */
         .costo-stimato {
             display: inline-block;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background-color: #6d4c41;
             color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 6px;
+            font-weight: 500;
             font-size: 1.2rem;
-            margin-top: 25px;
-            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+            margin-top: 30px;
         }
 
         hr {
@@ -250,27 +281,40 @@
 
             #menu-regioni {
                 display: none;
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
             }
 
             #menu-regioni.show {
-                display: grid;
+                display: flex;
             }
 
-            header {
-                padding: 40px 20px 30px;
+            .regione-link {
+                width: 100%;
+                max-width: 350px;
+                margin: 0;
+                transform: none !important;
+            }
+
+            .regione-link:hover {
+                transform: translateY(-5px) !important;
+            }
+
+            .page-content {
+                border-radius: 8px;
             }
 
             .ricetta {
-                padding: 25px 20px;
+                padding: 30px 20px;
             }
 
             h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             ol li {
-                padding-left: 45px;
+                padding-left: 50px;
             }
         }
 
@@ -284,37 +328,45 @@
 
 <div class="container">
     <header>
-        <h1>🍖 Spezzatino di Manzo Regionale 🇮🇹</h1>
-        <p class="subtitle">Scopri quattro modi unici di preparare il classico spezzatino. Tutte le ricette per 4 persone.</p>
+        <h1>Spezzatino di Manzo Regionale</h1>
+        <p class="subtitle">Quattro tradizioni culinarie italiane in un unico piatto classico. Ricette per 4 persone.</p>
     </header>
 
     <div class="hamburger" onclick="toggleMenu()">
-        ☰ Menu Ricette Regionali
+        Menu Ricette Regionali
     </div>
 
     <nav id="menu-regioni">
         <a href="#veneto" class="regione-link">
-            <img src="Spezzatino_Veneto.jpg" alt="Spezzatino Veneto con Polenta">
-            <p>Veneto: Spezzatino con Polenta</p>
+            <div class="page-content">
+                <img src="Spezzatino_Veneto.jpg" alt="Spezzatino Veneto con Polenta">
+                <p>Veneto<br>Spezzatino con Polenta</p>
+            </div>
         </a>
         <a href="#toscana" class="regione-link">
-            <img src="Spezzatino_Toscana.jpg" alt="Spezzatino Toscana al Chianti">
-            <p>Toscana: Spezzatino al Chianti</p>
+            <div class="page-content">
+                <img src="Spezzatino_Toscana.jpg" alt="Spezzatino Toscana al Chianti">
+                <p>Toscana<br>Spezzatino al Chianti</p>
+            </div>
         </a>
         <a href="#campania" class="regione-link">
-            <img src="Spezzatino_Campania.jpg" alt="Spezzatino Campania con Piselli">
-            <p>Campania: Spezzatino con Piselli</p>
+            <div class="page-content">
+                <img src="Spezzatino_Campania.jpg" alt="Spezzatino Campania con Piselli">
+                <p>Campania<br>Spezzatino con Piselli</p>
+            </div>
         </a>
         <a href="#piemonte" class="regione-link">
-            <img src="Spezzatino_Piemonte.jpg" alt="Spezzatino Piemonte al Barolo">
-            <p>Piemonte: Spezzatino al Barolo</p>
+            <div class="page-content">
+                <img src="Spezzatino_Piemonte.jpg" alt="Spezzatino Piemonte al Barolo">
+                <p>Piemonte<br>Spezzatino al Barolo</p>
+            </div>
         </a>
     </nav>
 
     <div id="veneto" class="ricetta">
         <h2>Veneto: Spezzatino con Polenta</h2>
         <div class="audio-container">
-            <label for="audio_veneto">🎧 Ascolta la Ricetta</label>
+            <label for="audio_veneto">Ascolta la Ricetta</label>
             <audio id="audio_veneto" controls>
                 <source src="Audio_Veneto.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -354,13 +406,13 @@
             <li>Servi caldo con polenta gialla.</li>
         </ol>
 
-        <p class="costo-stimato">💰 Costo Stimato: 12 - 16 € (a persona)</p>
+        <p class="costo-stimato">Costo Stimato: 12 - 16 € (a persona)</p>
     </div>
 
     <div id="toscana" class="ricetta">
         <h2>Toscana: Spezzatino al Chianti</h2>
         <div class="audio-container">
-            <label for="audio_toscana">🎧 Ascolta la Ricetta</label>
+            <label for="audio_toscana">Ascolta la Ricetta</label>
             <audio id="audio_toscana" controls>
                 <source src="Audio_Toscana.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -398,13 +450,13 @@
             <li>Aggiusta di sale alla fine. Servire con fette di pane toscano o fagioli all'olio.</li>
         </ol>
 
-        <p class="costo-stimato">💰 Costo Stimato: 14 - 18 € (a persona)</p>
+        <p class="costo-stimato">Costo Stimato: 14 - 18 € (a persona)</p>
     </div>
 
     <div id="campania" class="ricetta">
         <h2>Campania: Spezzatino con Piselli</h2>
         <div class="audio-container">
-            <label for="audio_campania">🎧 Ascolta la Ricetta</label>
+            <label for="audio_campania">Ascolta la Ricetta</label>
             <audio id="audio_campania" controls>
                 <source src="Audio_Campania.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -443,13 +495,13 @@
             <li>Prima di servire, guarnisci con foglie di basilico fresco. Ottimo anche per condire la pasta il giorno dopo.</li>
         </ol>
 
-        <p class="costo-stimato">💰 Costo Stimato: 10 - 13 € (a persona)</p>
+        <p class="costo-stimato">Costo Stimato: 10 - 13 € (a persona)</p>
     </div>
 
     <div id="piemonte" class="ricetta">
         <h2>Piemonte: Spezzatino al Barolo</h2>
         <div class="audio-container">
-            <label for="audio_piemonte">🎧 Ascolta la Ricetta</label>
+            <label for="audio_piemonte">Ascolta la Ricetta</label>
             <audio id="audio_piemonte" controls>
                 <source src="Audio_Piemonte.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
@@ -487,7 +539,7 @@
             <li>Frulla le verdure nel sugo se desideri una salsa più liscia e omogenea. Servire con purè di patate.</li>
         </ol>
 
-        <p class="costo-stimato">💰 Costo Stimato: 16 - 22 € (a persona)</p>
+        <p class="costo-stimato">Costo Stimato: 16 - 22 € (a persona)</p>
     </div>
 
 </div>
