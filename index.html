@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spezzatino di Manzo Regionale</title>
+    <style>
+        /* Stili Generali */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #CC7722; /* Giallo Ocra */
+            color: #000080; /* Blu Scuro per il testo principale */
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #0000CD; /* Blu Medio per il titolo principale */
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #00008B; /* Blu Scuro Forte per i titoli delle ricette */
+            border-bottom: 2px solid #00008B;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        p, li, caption {
+            color: #191970; /* Blu più leggero per i paragrafi e le liste */
+        }
+
+        /* Stili del Menu */
+        #menu-regioni {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .regione-link {
+            text-decoration: none;
+            display: block;
+            width: 220px; /* Larghezza fissa per ogni elemento del menu */
+            border: 3px solid #00008B;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #FFD700; /* Giallo Oro per evidenziare il menu */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .regione-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .regione-link img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .regione-link p {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #0000CD;
+            padding: 0 10px;
+        }
+
+        /* Stili Sezioni Ricetta */
+        .ricetta {
+            background-color: #F5DEB3; /* Giallo Chiaro per il contenitore ricetta */
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ingredienti-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .ingredienti-table, .ingredienti-table th, .ingredienti-table td {
+            border: 1px solid #00008B;
+        }
+
+        .ingredienti-table th, .ingredienti-table td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .ingredienti-table th {
+            background-color: #4682B4; /* Blu Acciaio per l'intestazione tabella */
+            color: white;
+        }
+
+        .costo-stimato {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #B22222; /* Rosso mattone per il costo */
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px dashed #B22222;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🍖 Spezzatino di Manzo: Quattro Regioni, Quattro Sapori 🇮🇹</h1>
+
+    <p>Scopri quattro modi unici di preparare il classico spezzatino di manzo, un viaggio culinario attraverso le tradizioni regionali italiane. Tutte le ricette sono pensate per **4 persone adulte**.</p>
+
+    <div id="menu-regioni">
+        <a href="#veneto" class="regione-link">
+            
+            <p>Veneto: Spezzatino con Polenta</p>
+        </a>
+        <a href="#toscana" class="regione-link">
+            
+            <p>Toscana: Spezzatino al Chianti</p>
+        </a>
+        <a href="#campania" class="regione-link">
+            
+            <p>Campania: Spezzatino con Piselli</p>
+        </a>
+        <a href="#piemonte" class="regione-link">
+            
+            <p>Piemonte: Spezzatino al Barolo</p>
+        </a>
+    </div>
+
+    <hr>
+
+    <div id="veneto" class="ricetta">
+        <h2>Veneto: Spezzatino con Polenta (Manzo al Vino Rosso)</h2>
+        <p>Un classico robusto del Nord Italia, spesso accompagnato dalla cremosa polenta.</p>
+
+        <h3>Ingredienti (per 4 persone)</h3>
+        <table class="ingredienti-table">
+            <thead>
+                <tr>
+                    <th>Ingrediente</th>
+                    <th>Peso/Quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Muscolo di manzo (tagliato a cubetti)</td><td>800 g</td></tr>
+                <tr><td>Vino rosso (Merlot o Valpolicella)</td><td>750 ml</td></tr>
+                <tr><td>Cipolla</td><td>150 g</td></tr>
+                <tr><td>Carota</td><td>100 g</td></tr>
+                <tr><td>Sedano</td><td>50 g</td></tr>
+                <tr><td>Brodo di carne</td><td>300 ml</td></tr>
+                <tr><td>Farina 00</td><td>50 g</td></tr>
+                <tr><td>Alloro</td><td>2 foglie</td></tr>
+                <tr><td>Olio extra vergine d'oliva (EVO)</td><td>3 cucchiai</td></tr>
+                <tr><td>Sale e Pepe nero</td><td>q.b.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Procedimento</h3>
+        <ol>
+            <li>Infarina leggermente i cubetti di manzo.</li>
+            <li>In una casseruola, rosola il manzo in olio EVO a fuoco vivo, fino a doratura, poi mettilo da parte.</li>
+            <li>Nel fondo di cottura, soffriggi cipolla, carota e sedano tritati finemente.</li>
+            <li>Aggiungi la carne e sfuma con il vino rosso. Lascia evaporare l'alcol.</li>
+            <li>Aggiungi il brodo, l'alloro, sale e pepe. Copri e cuoci a fuoco lento per circa **2,5 – 3 ore**, o finché la carne non sarà tenerissima.</li>
+            <li>Servi caldo con polenta gialla.</li>
+        </ol>
+
+        <p class="costo-stimato">Costo Previsto Stimato: 12 - 16 € (a persona)</p>
+    </div>
+
+    <hr>
+
+    <div id="toscana" class="ricetta">
+        <h2>Toscana: Spezzatino al Chianti (Peposo dell'Impruneta)</h2>
+        <p>Una ricetta storica e speziata, dove il Chianti e il pepe nero giocano un ruolo da protagonisti.</p>
+
+        <h3>Ingredienti (per 4 persone)</h3>
+        <table class="ingredienti-table">
+            <thead>
+                <tr>
+                    <th>Ingrediente</th>
+                    <th>Peso/Quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Guancia o spalla di manzo (a pezzi grandi)</td><td>800 g</td></tr>
+                <tr><td>Vino Chianti Classico</td><td>750 ml</td></tr>
+                <tr><td>Aglio (spicchi interi)</td><td>6 spicchi</td></tr>
+                <tr><td>Pepe nero in grani</td><td>1-2 cucchiai</td></tr>
+                <tr><td>Alloro o Salvia</td><td>2 foglie/rametti</td></tr>
+                <tr><td>Concentrato di pomodoro</td><td>1 cucchiaio</td></tr>
+                <tr><td>Olio extra vergine d'oliva (EVO)</td><td>q.b.</td></tr>
+                <tr><td>Sale</td><td>q.b.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Procedimento</h3>
+        <ol>
+            <li>In una pentola di coccio (o ghisa), scalda l'olio e aggiungi la carne. Fai rosolare bene.</li>
+            <li>Aggiungi l'aglio sbucciato, il pepe nero in grani e le erbe aromatiche.</li>
+            <li>Sciogli il concentrato di pomodoro in un po' di vino e versalo sulla carne.</li>
+            <li>Copri abbondantemente con il Chianti. Non è necessario aggiungere brodo.</li>
+            <li>Cuoci coperto in forno a **150°C** o sul fuoco a fiamma bassissima per circa **3-4 ore**. Il vino si ridurrà in un sughetto denso e scuro.</li>
+            <li>Aggiusta di sale alla fine. Servire con fette di pane toscano o fagioli all'olio.</li>
+        </ol>
+
+        <p class="costo-stimato">Costo Previsto Stimato: 14 - 18 € (a persona)</p>
+    </div>
+
+    <hr>
+
+    <div id="campania" class="ricetta">
+        <h2>Campania: Spezzatino con Piselli (Spezzatino al Ragù)</h2>
+        <p>Una ricetta con la dolcezza dei piselli e il sapore intenso del ragù meridionale.</p>
+
+        <h3>Ingredienti (per 4 persone)</h3>
+        <table class="ingredienti-table">
+            <thead>
+                <tr>
+                    <th>Ingrediente</th>
+                    <th>Peso/Quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Spezzatino di manzo (spalla o scamone)</td><td>800 g</td></tr>
+                <tr><td>Passata di pomodoro</td><td>500 g</td></tr>
+                <tr><td>Piselli (freschi o surgelati)</td><td>400 g</td></tr>
+                <tr><td>Cipolla dorata</td><td>100 g</td></tr>
+                <tr><td>Vino bianco secco</td><td>150 ml</td></tr>
+                <tr><td>Brodo vegetale</td><td>200 ml</td></tr>
+                <tr><td>Olio extra vergine d'oliva (EVO)</td><td>3 cucchiai</td></tr>
+                <tr><td>Basilico fresco</td><td>q.b.</td></tr>
+                <tr><td>Sale e Pepe</td><td>q.b.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Procedimento</h3>
+        <ol>
+            <li>In un tegame, soffriggi la cipolla tritata in olio EVO.</li>
+            <li>Aggiungi la carne e falla rosolare bene su tutti i lati. Sfuma con il vino bianco e lascia evaporare.</li>
+            <li>Versa la passata di pomodoro e il brodo vegetale, aggiusta di sale e pepe.</li>
+            <li>Cuoci coperto a fuoco lento per almeno **2 ore**.</li>
+            <li>Aggiungi i piselli circa **30 minuti** prima della fine della cottura.</li>
+            <li>Prima di servire, guarnisci con foglie di basilico fresco. Ottimo anche per condire la pasta il giorno dopo.</li>
+        </ol>
+
+        <p class="costo-stimato">Costo Previsto Stimato: 10 - 13 € (a persona)</p>
+    </div>
+
+    <hr>
+
+    <div id="piemonte" class="ricetta">
+        <h2>Piemonte: Spezzatino al Barolo (Brasato Semplificato)</h2>
+        <p>Un'alternativa più veloce al celebre brasato, ma che mantiene la ricchezza aromatica del Barolo e delle spezie.</p>
+
+        <h3>Ingredienti (per 4 persone)</h3>
+        <table class="ingredienti-table">
+            <thead>
+                <tr>
+                    <th>Ingrediente</th>
+                    <th>Peso/Quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Fesone di spalla o polpa di manzo (a cubetti)</td><td>800 g</td></tr>
+                <tr><td>Vino Barolo (o Nebbiolo di qualità)</td><td>750 ml</td></tr>
+                <tr><td>Brodo di carne</td><td>200 ml</td></tr>
+                <tr><td>Concentrato di pomodoro</td><td>1 cucchiaio</td></tr>
+                <tr><td>Misto per soffritto (cipolla, carota, sedano)</td><td>200 g</td></tr>
+                <tr><td>Chiodi di garofano, Cannella, Noce moscata</td><td>q.b.</td></tr>
+                <tr><td>Olio extra vergine d'oliva (EVO)</td><td>q.b.</td></tr>
+                <tr><td>Sale e Pepe</td><td>q.b.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Procedimento</h3>
+        <ol>
+            <li>**Marinatura (Opzionale, ma consigliata):** Metti la carne a marinare nel Barolo con le verdure e le spezie per almeno 3-4 ore (o una notte). Scola e asciuga la carne, ma conserva il vino e le verdure.</li>
+            <li>In una casseruola, rosola la carne in olio EVO. Togli la carne e metti da parte.</li>
+            <li>Nella stessa casseruola, soffriggi le verdure della marinatura (o fresche) fino a che non saranno appassite.</li>
+            <li>Aggiungi la carne, il concentrato di pomodoro, sale, pepe e copri con il vino della marinatura.</li>
+            <li>Aggiungi il brodo. Cuoci a fuoco lento per circa **2 ore**, o finché il sugo non sarà denso e la carne tenera.</li>
+            <li>Frulla le verdure nel sugo se desideri una salsa più liscia e omogenea. Servire con purè di patate.</li>
+        </ol>
+
+        <p class="costo-stimato">Costo Previsto Stimato: 16 - 22 € (a persona)</p>
+    </div>
+
+</body>
+</html>
